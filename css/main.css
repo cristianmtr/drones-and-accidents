@@ -1,0 +1,17 @@
+.drone {
+    width: 5em;
+    height: 5em;
+    border-radius: 50%;
+    background-color: #0b97c4;
+    border: 0.5em dotted black;
+    animation: spin 3s infinite linear;
+    position: absolute;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+
+
+}

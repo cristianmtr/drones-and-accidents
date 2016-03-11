@@ -1,31 +1,14 @@
-class DroneContainer {
-    private nextIdForDrones: number = 0;
+class WorldContainer {
 
-    private theDrones: Drone[];
-
-    public onClickHandler(droneDivId: number) {
-
-    }
-
-}
-
-class Drone {
-
-    constructor () {
-    // generate div
-    // on click
-        console.log("new drone");
-    };
-}
-
-class Main {
-
-    public main() {
+    // entry point for main
+    public static main() {
         console.log("START!");
+        var droneContainer = new DroneContainer();
+        var accidentsContainer = new AccidentsContainer();
+
     };
 
 }
 
-var main = new Main();
-main.main();
+WorldContainer.main();
 
