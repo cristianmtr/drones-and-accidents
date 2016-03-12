@@ -5,6 +5,15 @@
     <link rel="stylesheet" href="css/main.css"/>
 </head>
 <body>
+<div id="menuContainer">
+    <div id="txtNrDronesContainer"><input type="text" id="txtNrDrones" placeholder="drones to create"/><button id="btnCreateDrones">CLICK</button><hr/></div>
+
+    <h4>STATS</h4>
+
+    <hr/>
+
+</div>
+<div id="mapContainer">
 <?php
         // construct accident divs
         // we do not assign them random position in php
@@ -23,6 +32,7 @@
         }
 
         ?>
+</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
 </body>

@@ -4,8 +4,8 @@ class Accident {
     private accidentId: number;
 
     private randomPosToAccident() {
-        var maxLeft = $(window).width();
-        var maxTop = $(window).height();
+        var maxLeft = $("#mapContainer").width(); // no going into the menu side
+        var maxTop = $("#mapContainer").height();
         var randTop: number = Utils.randomIntInRange(0,maxTop);
         var randLeft: number = Utils.randomIntInRange(0,maxLeft);
         $("#accident"+this.accidentId).css({top: randTop, left: randLeft});
@@ -13,7 +13,7 @@ class Accident {
 
     constructor (id: number) {
         this.accidentId = id;
-        // assign them random positions on the window
+        // assign random positions on the window
         this.randomPosToAccident()
     }
 }

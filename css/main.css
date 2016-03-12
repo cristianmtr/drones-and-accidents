@@ -1,10 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .drone {
-    width: 5em;
-    height: 5em;
+    width: 2em;
+    height: 2em;
     border-radius: 50%;
     background-color: #0b97c4;
     border: 0.5em dotted black;
-    animation: spin 3s infinite linear;
+    /*animation: spin 3s infinite linear;*/
     position: absolute;
 }
 
@@ -15,10 +21,31 @@
 }
 
 .accident {
-    width: 7em;
-    height: 7em;
+    width: 4em;
+    height: 4em;
     border-radius: 50%;
     background-color: firebrick;
     border: 0.1em solid red;
     position: absolute;
+}
+
+#menuContainer {
+    float: right;
+    width: 15%;
+    height: 100vh;
+    border: #2915ff solid 0.2em;
+    font-size: x-large;
+}
+
+#txtNrDronesContainer {
+}
+
+#mapContainer {
+    width: 85%;
+    height: 100vh;
+    border: 0.1em solid black;
+}
+
+body {
+    overflow: hidden;
 }
