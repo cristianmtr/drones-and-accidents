@@ -1,9 +1,4 @@
-/**
- * Created by cristian on 3/11/16.
- */
 class Drone {
-    private droneDiv: string;
-
     private onClickHandler(e: JQueryEventObject) {
         console.log("clicked on ", this.droneId);
         // open menu
@@ -17,8 +12,8 @@ class Drone {
         // generate div
         var droneIdString:string = 'drone'+droneId;
         console.log("id ",droneIdString);
-        this.droneDiv = '<div id="'+droneIdString+'" class="drone"></div>';
-        $("body").append(this.droneDiv);
+        var droneDiv = '<div id="'+droneIdString+'" class="drone"></div>';
+        $("body").append(droneDiv);
         // on click
         $(document).on("click", "#"+droneIdString, (e => this.onClickHandler(e)));
     };
@@ -28,10 +23,6 @@ class DroneContainer {
     private nextIdForDrones: number = 0;
 
     private theDrones: Drone[];
-
-    public onClickHandler(droneDivId: number) {
-
-    }
 
     constructor(){
         console.log("new dronesContainer");

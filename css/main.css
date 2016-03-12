@@ -12,6 +12,13 @@
     100% {
         transform: rotate(360deg);
     }
+}
 
-
+.accident {
+    width: 7em;
+    height: 7em;
+    border-radius: 50%;
+    background-color: firebrick;
+    border: 0.1em solid red;
+    position: absolute;
 }

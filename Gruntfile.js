@@ -1,16 +1,15 @@
 module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-ts');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-connect');
+    grunt.loadNpmTasks('grunt-php');
     grunt.loadNpmTasks('grunt-open');
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-        connect: {
-            server: {
+        php: {
+            dist: {
                 options: {
-                    port: 8080,
-                    base: './'
+                    port: 5000
                 }
             }
         },
@@ -24,7 +23,7 @@ module.exports = function (grunt) {
                     declaration: true,
                     removeComments: false
                 }
-            },
+            }
         },
         watch: {
             files: 'ts/*.ts',
@@ -32,11 +31,11 @@ module.exports = function (grunt) {
         },
         open: {
             dev: {
-                path: 'http://localhost:8080/index.html'
+                path: 'http://localhost:5000/index.php'
             }
         }
     });
 
-    grunt.registerTask('default', ['ts', 'connect', 'open', 'watch']);
+    grunt.registerTask('default', ['ts', 'php', 'open', 'watch']);
 
 };
