@@ -1,17 +1,11 @@
-class WorldContainer {
+// singleton instances of the world objects
+var droneContainer = DroneContainer.getInstance();
+var accidentsContainer = AccidentsContainer.getInstance(); // initializes accidents
+var menuContainer = MenuContainer.getInstance();
 
-    // entry point for main
-    public static main() {
-        console.log("START!");
-        // instances of the world objects
-        var droneContainer = new DroneContainer();
-        var accidentsContainer = new AccidentsContainer(); // initializes accidents
-        var menuContainer = new MenuContainer();
-        $(document).on("click", "#btnCreateDrones", function() {menuContainer.onCreateDronesClick(droneContainer);})
+console.log("START!");
+$(document).on("click", "#btnCreateDrones", function() {
+    menuContainer.onCreateDronesClick(droneContainer);
+});
 
-    };
-
-}
-
-WorldContainer.main();
 

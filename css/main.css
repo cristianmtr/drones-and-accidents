@@ -21,8 +21,8 @@
 }
 
 .accident {
-    width: 4em;
-    height: 4em;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     background-color: firebrick;
     border: 0.1em solid red;
