@@ -44,6 +44,10 @@
     100%  {background-color: #ff0c10;}
 }
 
+.fa-trash {
+    float: right;
+}
+
 #menuContainer {
     float: right;
     width: 15%;
@@ -59,6 +63,8 @@
     width: 85%;
     height: 100vh;
     border: 0.1em solid black;
+    background-image: url("../img/map2.png");
+    background-size:cover;
 }
 
 body {

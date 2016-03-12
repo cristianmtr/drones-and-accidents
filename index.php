@@ -3,6 +3,7 @@
 <head>
     <title>DRONES AND ACCIDENTS</title>
     <link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
 <body>
 <div id="menuContainer">
@@ -24,7 +25,7 @@
 
     <hr/>
 
-    <div>Accidents per:</div>
+    <div>Accidents per drone:</div>
 
     <div id="lblIndividualDroneStats"></div>
 
@@ -43,7 +44,7 @@
             // we do not assign them random position in php
             // since we do not know the window size
             $accidentId = 0;
-            $nrAccidents = 5 ;
+            $nrAccidents = rand(4, 9) ;
 
             function generateAccidentDiv($accidentId) {
             $accidentDiv = '<div class="accident" id="accident'.$accidentId.'"></div>';

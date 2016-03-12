@@ -5,8 +5,10 @@ class MenuContainer {
             menuContainer.onCreateDronesClick(droneContainer);
         });
         this.updateNrAccidents(0);
-        this.updateNrDrones(0);
+
     }
+
+    private selectedDrone: number = null;
 
     private static uniqueInstance:MenuContainer;
 
@@ -18,33 +20,57 @@ class MenuContainer {
         return this.uniqueInstance;
     }
 
+    public deselectDrone():void{
+        if (this.selectedDrone === null) {
+            console.log("No drone selected");
+        }
+        $("#drone"+this.selectedDrone+"StatsContainer").css({border: ''});
+    }
+
+    public selectDroneInMenu(droneId:number): void{
+        this.selectedDrone = droneId;
+        $("#drone"+droneId+"StatsContainer").css({border: 'red 0.1em solid'});
+    }
+
     public updateNrAccidents(nrAccidents:number) {
         var lastNr = parseInt($("#lblTotalAccidents").text());
         var newNr = lastNr + nrAccidents;
         $("#lblTotalAccidents").text(newNr);
     }
 
+    public incrementsAccidentsForDrone(droneId: number): void {
+        var oldNr = parseInt($("#lblDrone"+droneId+"Accidents").text());
+        oldNr++;
+        $("#lblDrone"+droneId+"Accidents").text(oldNr);
+    }
+
     public onCreateDronesClick(droneContainer:DroneContainer):void {
         droneContainer.generateDrones();
         $("#txtNrDronesContainer").remove();
-        this.updateNrDrones(droneContainer.getNrDrones());
     }
 
-    public incrementDroneAccidents(idDrone: number) {
+    public deleteDroneFromList(droneId: number): void {
+        var theNrOfDrones = parseInt($("#lblTotalDrones").text());
+        theNrOfDrones--;
+        $("#lblTotalDrones").text(theNrOfDrones);
 
+        // rem individual stats section
+        $("#drone"+droneId+"StatsContainer").remove();
     }
 
-    public updateNrDrones(nrDrones:number):void {
-        var lastNr = parseInt($("#lblTotalDrones").text());
-        var newNr = lastNr + nrDrones;
-        $("#lblTotalDrones").text(newNr);
+    public addDrone(droneId: number):void {
+        var theNrOfDrones = parseInt($("#lblTotalDrones").text());
+        theNrOfDrones++;
+        $("#lblTotalDrones").text(theNrOfDrones);
 
-        if (newNr === 0){
-            $("#lblIndividualDroneStats").text("N/A");
-        }
-        else {
-            // select all drones
-            $("#lblIndividualDroneStats").text("DRONE 1 : X");
-        }
+        // add individual stats section
+        var statsContainer = $("#lblIndividualDroneStats");
+        var btnIdString: string = 'btnDeleteDrone' + droneId;
+        var theDiv = '<div id="drone'+droneId+'StatsContainer">#'+droneId+': <span id="lblDrone'+droneId+'Accidents">0</span> <i class="fa fa-trash" id="'+btnIdString+'"></i></div>';
+        statsContainer.append(theDiv);
+
+        // register delete button listener
+        $(document).on('click', '#'+btnIdString, (e=>DroneContainer.getInstance().deleteDrone(droneId)) );
+
     }
 }
