@@ -5,13 +5,16 @@
 }
 
 .drone {
-    width: 2em;
-    height: 2em;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     background-color: #0b97c4;
     border: 0.5em dotted black;
-    /*animation: spin 3s infinite linear;*/
     position: absolute;
+}
+
+.spin-drone {
+    animation: spin 3s infinite linear;
 }
 
 @keyframes spin {
@@ -24,9 +27,21 @@
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    background-color: firebrick;
-    border: 0.1em solid red;
+    background-color: #ff3f43;
+    opacity: 0.5;
     position: absolute;
+    box-shadow: 0 0 5px 10px #ff3f43;
+}
+
+.blink-accident {
+    animation: blink 3s infinite linear;
+}
+
+@keyframes blink {
+    0%   {background-color: #ff0c10;}
+    25%  {background-color: #ff5f61;}
+    50%  {background-color: #ff306f}
+    100%  {background-color: #ff0c10;}
 }
 
 #menuContainer {

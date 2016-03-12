@@ -1,6 +1,9 @@
 class MenuContainer {
     constructor() {
         console.log('init MenuContainer');
+        $(document).on("click", "#btnCreateDrones", function() {
+            menuContainer.onCreateDronesClick(droneContainer);
+        });
         this.updateNrAccidents(0);
         this.updateNrDrones(0);
     }
@@ -27,7 +30,11 @@ class MenuContainer {
         this.updateNrDrones(droneContainer.getNrDrones());
     }
 
-    private updateNrDrones(nrDrones:number):void {
+    public incrementDroneAccidents(idDrone: number) {
+
+    }
+
+    public updateNrDrones(nrDrones:number):void {
         var lastNr = parseInt($("#lblTotalDrones").text());
         var newNr = lastNr + nrDrones;
         $("#lblTotalDrones").text(newNr);
@@ -36,6 +43,7 @@ class MenuContainer {
             $("#lblIndividualDroneStats").text("N/A");
         }
         else {
+            // select all drones
             $("#lblIndividualDroneStats").text("DRONE 1 : X");
         }
     }

@@ -4,8 +4,3 @@ var accidentsContainer = AccidentsContainer.getInstance(); // initializes accide
 var menuContainer = MenuContainer.getInstance();
 
 console.log("START!");
-$(document).on("click", "#btnCreateDrones", function() {
-    menuContainer.onCreateDronesClick(droneContainer);
-});
-
-

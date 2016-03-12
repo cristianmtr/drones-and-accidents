@@ -1,7 +1,14 @@
 class Drone {
+    public static droneWidth:number = 30;
+
     private onClickHandler(e: JQueryEventObject) {
         console.log("clicked on ", this.droneId);
-        // open menu
+        // remove spin from all other drones
+        // begin spin animation of drone
+        // mark accidents as being possible choices
+        $(".spin-drone").removeClass('spin-drone');
+        $("#drone"+this.droneId).addClass('spin-drone');
+        $(".accident").addClass('blink-accident');
     }
 
     private droneId: number;
